@@ -1,8 +1,5 @@
 package notifyposture;
 
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,10 +11,16 @@ public class NotifyPosture {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
-        executor.scheduleAtFixedRate(() -> {
-            JOptionPane.showMessageDialog(null, "Corrigir a postura!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
-        }, 0, 6, TimeUnit.SECONDS);
+        while (true) {
+            // Executar a lógica do método aqui
+            try {
+                Thread.sleep(600000); // espera 10 segundos 10000
+                JOptionPane.showMessageDialog(null, "Corrigir a postura!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+            } catch (InterruptedException e) {
+                // tratar a exceção
+            }
+        }
+
     }
- 
+
 }
